@@ -21,6 +21,7 @@
 
   /*
      send bug reports and comments to sergey.plyasunov@gmail.com
+     (see LICENSE file for the license information)
    */
 
 #include <iostream>
@@ -62,12 +63,12 @@ namespace rk {
       }
     }
   /*--allocate temporary arrays*/
-    double *yjm1 = work;        //new double[neqn];
-    double *yjm2 = work + neqn; //new double[neqn];
-    double *yjm3 = work + 2 * neqn;     //new double[neqn];
-    double *yjm4 = work + 3 * neqn;     //new double[neqn];
-    double *fn = work + 4 * neqn;       //new double[neqn];
-    double *fnt = work + 5 * neqn;      //new double[neqn];
+    double *yjm1 = work;      
+    double *yjm2 = work + neqn; 
+    double *yjm3 = work + 2 * neqn;     
+    double *yjm4 = work + 3 * neqn;     
+    double *fn   = work + 4 * neqn;       
+    double *fnt  = work + 5 * neqn;    
 
     /* -------- First stage.-------- */
 
@@ -168,14 +169,8 @@ namespace rk {
     }
 
     err = std::sqrt(err / double (neqn));
-
-         /*--deallocate--*/
-    // delete [] yjm1;
-    // delete [] yjm2;
-    // delete [] yjm3;
-    // delete [] yjm4;
-    // delete [] fn;
-    // delete [] fnt;
+    /*--deallocate--*/
+   
     return;
   }
 // *----------------------------------------------

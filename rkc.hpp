@@ -1,10 +1,11 @@
 /*
- Stabilized Runge-Kuuta (2nd order)
+ Stabilized Runge-Kutta (2nd order)
  based on 
- "explicit solver for parabolic PDEs"
+ "Explicit solver for parabolic PDEs"
   by Sommeijer, Shampine, Verwer, J. Comp. Appl. Math., 1997  
-
+  2010: added method for solving linear complementatiry problems 
   send commnets to sergey.plyasunov@gmail.com
+  (see LICENSE file for the license information)
 */
 
 #pragma once
@@ -31,12 +32,12 @@ rkc_step(const int     neqn,
 	 const double eps, /*=2.0/13.0*/
 	 double *work){
  
-  double *y= work;//new double[neqn];
-  double *yjm1= work+neqn;//new double[neqn];
-  double *yjm2= work+2*neqn;//new double[neqn];
-  double *rhs=  work+3*neqn;//new double[neqn];
-  double *dye_0= work+4*neqn;//new double[neqn];
-  double *dye_jm1= work+5*neqn;//new double[neqn];
+  double *y= work;
+  double *yjm1= work+neqn;
+  double *yjm2= work+2*neqn;
+  double *rhs=  work+3*neqn;
+  double *dye_0= work+4*neqn;
+  double *dye_jm1= work+5*neqn;
   
   double nu,mu,mus,mus1;
   double w0,w1; 
@@ -131,14 +132,7 @@ rkc_step(const int     neqn,
     err = err + std::pow( 0.5e0 * abs_t_step *(dye_jm1[i]-dye_0[i])/(atol + rtol*std::abs(yn[i]) ), 2.0e0 );
   }
   err = std::sqrt(err/neqn);
-  //clean up
- /* delete [] y;
-  delete [] yjm1;
-  delete [] yjm2;
-  delete [] rhs;
-  delete [] dye_0;
-  delete [] dye_jm1;
- */ 
+
 }
  
 template<typename TRHSFun>
