@@ -3,7 +3,7 @@
  based on 
  "Explicit solver for parabolic PDEs"
   by Sommeijer, Shampine, Verwer, J. Comp. Appl. Math., 1997  
-  2010: added method for solving linear complementariry problems 
+  2010: added method for solving linear complementarity problems (lcp)
   send commnets to sergey.plyasunov@gmail.com
   (see LICENSE file for the license information)
 */
