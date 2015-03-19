@@ -1,3 +1,15 @@
-Collection of header files with implementation of 2nd and 4th order stabilized Runge-Kutta methods
+Collection of header-only files with implementation of 2nd and 4th order stabilized Runge-Kutta methods.
+Possible use: 
+include "rkc.hpp" or "rock4.hpp", define rhs_function(t,u,du_dt) and call appropriate solving method:
+rk::rkc_solve(neqn,
+                0.0,
+                u0,    
+                t_end,
+                h0,
+                rhs_function,
+                u_end,
+                tol, tol );
+
+to obtain the solution u_end(t_end)
 
 sergey.plyasunov@gmail.com
