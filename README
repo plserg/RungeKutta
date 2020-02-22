@@ -1,6 +1,6 @@
 Collection of header-only files with implementation of 2nd and 4th order stabilized Runge-Kutta methods.
 Possible use: 
-include "rkc.hpp" or "rock4.hpp", define rhs_function(t,u,du_dt) which maps du/t = rhs(t,u) 
+include "rkc.hpp" or "rock4.hpp", define rhs_function(t,u,du_dt) which maps du/dt = rhs(t,u) 
 and call appropriate solving method:
 
 rk::rkc_solve(neqn,
